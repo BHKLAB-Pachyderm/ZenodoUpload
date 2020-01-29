@@ -13,7 +13,7 @@ bucket_url = r.json()['links']['bucket']
 
 with open('/pfs/getGRAYP_2013/GRAY_2013.rds', 'rb') as fp:
     res = requests.put(
-        bucket_url + '/CCLE.rds',
+        bucket_url + '/GRAY_2013.rds',
         data=fp,
         # No headers included in the request, since it's a raw byte request
         params={'access_token': ACCESS_TOKEN},
@@ -34,7 +34,7 @@ data = {
         }
      }
 deposition_id = r.json()['id']
-r = requests.put('https://zenodo.org/api/deposit/depositions/%s' % deposition_id, params={'access_token': ACCESS_TOKEN}, data=json.dumps(data),headers=headers)
+r = requests.put('https://zenodo.org/api/deposit/depositions/%s' % deposition_id, params={'access_token': ACCESS_TOKEN}, data=json.dumps(data),headers={"Content-Type": "application/json"})
 
 r.status_code
 
