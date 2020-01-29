@@ -16,7 +16,7 @@ with open('/pfs/getGRAYP_2013/GRAY_2013.rds', 'rb') as fp:
         bucket_url + '/CCLE.rds',
         data=fp,
         # No headers included in the request, since it's a raw byte request
-        params=params,
+        params={'access_token': ACCESS_TOKEN},
     )
 print(res.json())
 
