@@ -13,12 +13,16 @@ bucket_url = r.json()['links']['bucket']
 
 with open('/pfs/getGRAYP_2013/GRAY_2013.rds', 'rb') as fp:
     res = requests.put(
-        bucket_url + '/GRAY_2013.rds',
+        bucket_url + '/CCLE.rds',
         data=fp,
         # No headers included in the request, since it's a raw byte request
         params=params,
     )
 print(res.json())
+
+
+
+
 
 data = {
      'metadata': {
