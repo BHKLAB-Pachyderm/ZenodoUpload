@@ -33,10 +33,8 @@ data = {
                       'affiliation': 'Zenodo'}]
         }
      }
-     deposition_id = r.json()['id']
-    r = requests.put('https://zenodo.org/api/deposit/depositions/%s' % deposition_id,
-                      params={'access_token': ACCESS_TOKEN}, data=json.dumps(data),
-                      headers=headers)
+deposition_id = r.json()['id']
+r = requests.put('https://zenodo.org/api/deposit/depositions/%s' % deposition_id, params={'access_token': ACCESS_TOKEN}, data=json.dumps(data),headers=headers)
 
 r.status_code
 
