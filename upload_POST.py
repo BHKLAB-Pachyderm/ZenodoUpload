@@ -41,7 +41,7 @@ r.status_code
 ##POST Request
 
 url = 'https://orcestra.azurewebsites.net/pset/complete'
-myobj = {'COMMIT': '6hdhs8283', "ZENODO_DOI": "10.32.5:zenodo.15432", 'ORCESTRA_ID': "6473hdjsa8383343434", 'download_link': "http://zenodo.com/727462323"}
+myobj = {'COMMIT': '6hdhs8283', "ZENODO_DOI": "10.32.5:zenodo.15432", 'ORCESTRA_ID': "6hdhs8283", 'download_link': "http://zenodo.com/727462323"}
 
 x = requests.post(url, data = myobj)
 
