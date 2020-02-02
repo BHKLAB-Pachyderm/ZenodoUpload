@@ -1,7 +1,7 @@
 import requests
 import json
 
-ACCESS_TOKEN = "smjHPEyfPjYliofNuOpbeZYjCJLeIFEiKMgEFVj2i9R9SxxKdUGL3KJhJc3Sw"
+ACCESS_TOKEN = "mjHPEyfPjYliofNuOpbeZYjCJLeIFEiKMgEFVj2i9R9SxxKdUGL3KJhJc3Sw"
 r = requests.post('https://sandbox.zenodo.org/api/deposit/depositions',
                         params={'access_token': ACCESS_TOKEN}, json={},
                         headers={"Content-Type": "application/json"})
