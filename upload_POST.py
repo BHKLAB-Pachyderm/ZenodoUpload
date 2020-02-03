@@ -1,6 +1,11 @@
 import requests
 import json
 
+
+with open('/Users/anthony/Desktop/commit.txt', 'r') as file:
+    pach_commit = file.read().replace('\n', '')
+    
+print(pach_commit)
 ACCESS_TOKEN = "mjHPEyfPjYliofNuOpbeZYjCJLeIFEiKMgEFVj2i9R9SxxKdUGL3KJhJc3Sw"
 r = requests.post('https://sandbox.zenodo.org/api/deposit/depositions',
                         params={'access_token': ACCESS_TOKEN}, json={},
@@ -9,7 +14,7 @@ r = requests.post('https://sandbox.zenodo.org/api/deposit/depositions',
 r.status_code
 r.json()
 doi = r.json()['metadata']['prereserve_doi']['doi']
-doi_url = 'https://doi.org/' + doi
+doi_url = r.json()['links']['bucket'] + "/GRAY.rds"
 
 bucket_url = r.json()['links']['bucket']
 
@@ -47,7 +52,7 @@ r = requests.post('https://sandbox.zenodo.org/api/deposit/depositions/%s/actions
 ##POST Request
 
 url = 'http://www.orcestra.ca/pset/complete'
-myobj = {'COMMIT': '6hdhs8283', "ZENODO_DOI": doi, 'ORCESTRA_ID': "6hdhs8283", 'download_link': doi_url}
+myobj = {'COMMIT': pach_commit, "ZENODO_DOI": doi, 'ORCESTRA_ID': "6hdhs8283", 'download_link': doi_url}
 
 x = requests.post(url, data = myobj)
 
