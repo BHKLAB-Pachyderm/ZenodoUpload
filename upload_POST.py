@@ -5,6 +5,10 @@ import json
 with open('/pfs/getGRAYP_2013/gray_commit_id.txt', 'r') as file:
     pach_commit = file.read().replace('\n', '')
     
+with open('/pfs/getGRAYP_2013/orcestra_id.txt', 'r') as file:
+    orcestra_commit_id = file.read().replace('\n', '')
+    
+    
 print(pach_commit)
 ACCESS_TOKEN = "mjHPEyfPjYliofNuOpbeZYjCJLeIFEiKMgEFVj2i9R9SxxKdUGL3KJhJc3Sw"
 r = requests.post('https://sandbox.zenodo.org/api/deposit/depositions',
@@ -52,7 +56,7 @@ r = requests.post('https://sandbox.zenodo.org/api/deposit/depositions/%s/actions
 ##POST Request
 
 url = 'http://www.orcestra.ca/pset/complete'
-myobj = {'COMMIT': pach_commit, "ZENODO_DOI": doi, 'ORCESTRA_ID': "6hdhs8283", 'download_link': doi_url}
+myobj = {'COMMIT': pach_commit, "ZENODO_DOI": doi, 'ORCESTRA_ID': orcestra_commit_id, 'download_link': doi_url}
 
 x = requests.post(url, data = myobj)
 
