@@ -2,7 +2,7 @@ import requests
 import json
 
 
-with open('/Users/anthony/Desktop/commit.txt', 'r') as file:
+with open('/pfs/getGRAYP_2013/gray_commit_id.txt', 'r') as file:
     pach_commit = file.read().replace('\n', '')
     
 print(pach_commit)
