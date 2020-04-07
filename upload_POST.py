@@ -2,7 +2,7 @@ import requests
 import json
 
 
-with open('/pfs/getGRAYP_2013/gray_commit_id.txt', 'r') as file:
+with open('/pfs/getGRAYP_2013/commit_id.txt', 'r') as file:
     pach_commit = file.read().replace('\n', '')
     
 with open('/pfs/getGRAYP_2013/orcestra_id.txt', 'r') as file:
@@ -24,9 +24,9 @@ bucket_url = r.json()['links']['bucket']
 
 ##UPLOAD PSET
 
-with open('/pfs/getGRAYP_2013/GRAY_2013.rds', 'rb') as fp:
+with open('/pfs/getGRAYP_2013/GRAY.rds', 'rb') as fp:
     res = requests.put(
-        bucket_url + '/GRAY_2013.rds',
+        bucket_url + '/GRAY.rds',
         data=fp,
         # No headers included in the request, since it's a raw byte request
         params={'access_token': ACCESS_TOKEN},
