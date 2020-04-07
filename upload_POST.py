@@ -2,13 +2,13 @@ import requests
 import json
 
 
-with open('/pfs/getGRAYP_2013/commit_id.txt', 'r') as file:
+with open('/pfs/input/commit_id.txt', 'r') as file:
     pach_commit = file.read().replace('\n', '')
     
-with open('/pfs/getGRAYP_2013/orcestra_id.txt', 'r') as file:
+with open('/pfs/input/orcestra_id.txt', 'r') as file:
     orcestra_commit_id = file.read().replace('\n', '')
     
-with open('/pfs/getGRAYP_2013/dataset.txt', 'r') as file:
+with open('/pfs/input/dataset.txt', 'r') as file:
     ds = file.read().replace('\n', '')
     
     
@@ -27,7 +27,7 @@ bucket_url = r.json()['links']['bucket']
 
 ##UPLOAD PSET
 
-with open('/pfs/getGRAYP_2013/'+ ds + '.rds', 'rb') as fp:
+with open('/pfs/input/'+ ds + '.rds', 'rb') as fp:
     res = requests.put(
         bucket_url + '/'+ ds + '.rds',
         data=fp,
