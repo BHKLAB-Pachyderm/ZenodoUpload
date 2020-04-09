@@ -58,7 +58,7 @@ r = requests.post('https://sandbox.zenodo.org/api/deposit/depositions/%s/actions
 
 ##POST Request
 
-url = 'http://www.orcestra.ca/pset/complete'
+url = 'http://orcestra.ca/api/pset/complete'
 myobj = {'COMMIT': pach_commit, "ZENODO_DOI": doi, 'ORCESTRA_ID': orcestra_commit_id, 'download_link': doi_url}
 
 x = requests.post(url, data = myobj)
