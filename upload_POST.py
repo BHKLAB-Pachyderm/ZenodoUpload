@@ -53,8 +53,8 @@ r = requests.put('https://zenodo.org/api/deposit/depositions/%s' % deposition_id
 r.status_code
 
 ##PUBLISH TO ZENODO
-#r = requests.post('https://zenodo.org/api/deposit/depositions/%s/actions/publish' % deposition_id,
-                      #params={'access_token': ACCESS_TOKEN} )
+r = requests.post('https://zenodo.org/api/deposit/depositions/%s/actions/publish' % deposition_id,
+                      params={'access_token': ACCESS_TOKEN} )
 
 ##POST Request
 
