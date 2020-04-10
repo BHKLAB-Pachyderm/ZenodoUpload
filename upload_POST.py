@@ -13,8 +13,8 @@ with open('/pfs/input/dataset.txt', 'r') as file:
     
     
 print(pach_commit)
-ACCESS_TOKEN = "mjHPEyfPjYliofNuOpbeZYjCJLeIFEiKMgEFVj2i9R9SxxKdUGL3KJhJc3Sw"
-r = requests.post('https://sandbox.zenodo.org/api/deposit/depositions',
+ACCESS_TOKEN = "GHDr6M7UPr1QRDVn6Hq64VbkzLsi1hDrAuXWmUNloUPShXTiL6VhiOnfd586"
+r = requests.post('https://zenodo.org/api/deposit/depositions',
                         params={'access_token': ACCESS_TOKEN}, json={},
                         headers={"Content-Type": "application/json"})
 
@@ -48,13 +48,13 @@ data = {
         }
      }
 deposition_id = r.json()['id']
-r = requests.put('https://sandbox.zenodo.org/api/deposit/depositions/%s' % deposition_id, params={'access_token': ACCESS_TOKEN}, data=json.dumps(data),headers={"Content-Type": "application/json"})
+r = requests.put('https://zenodo.org/api/deposit/depositions/%s' % deposition_id, params={'access_token': ACCESS_TOKEN}, data=json.dumps(data),headers={"Content-Type": "application/json"})
 
 r.status_code
 
 ##PUBLISH TO ZENODO
-r = requests.post('https://sandbox.zenodo.org/api/deposit/depositions/%s/actions/publish' % deposition_id,
-                      params={'access_token': ACCESS_TOKEN} )
+#r = requests.post('https://zenodo.org/api/deposit/depositions/%s/actions/publish' % deposition_id,
+                      #params={'access_token': ACCESS_TOKEN} )
 
 ##POST Request
 
