@@ -49,7 +49,7 @@ data = {
      }
 deposition_id = r.json()['id']
 
-doi_url = "https://zenodo.org/record/" + deposition_id + "/files/" + ds + ".rds?download=1"
+doi_url = "https://zenodo.org/record/" + str(deposition_id) + "/files/" + ds + ".rds?download=1"
 
 r = requests.put('https://zenodo.org/api/deposit/depositions/%s' % deposition_id, params={'access_token': ACCESS_TOKEN}, data=json.dumps(data),headers={"Content-Type": "application/json"})
 
