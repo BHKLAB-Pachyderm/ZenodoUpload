@@ -21,7 +21,7 @@ r = requests.post('https://zenodo.org/api/deposit/depositions',
 r.status_code
 r.json()
 doi = r.json()['metadata']['prereserve_doi']['doi']
-doi_url = r.json()['links']['bucket'] + "/" + ds + ".rds"
+#doi_url = r.json()['links']['bucket'] + "/" + ds + ".rds"
 
 bucket_url = r.json()['links']['bucket']
 
@@ -48,6 +48,9 @@ data = {
         }
      }
 deposition_id = r.json()['id']
+
+doi_url = "https://zenodo.org/record/" + deposition_id + "/files/" + ds + ".rds?download=1"
+
 r = requests.put('https://zenodo.org/api/deposit/depositions/%s' % deposition_id, params={'access_token': ACCESS_TOKEN}, data=json.dumps(data),headers={"Content-Type": "application/json"})
 
 r.status_code
